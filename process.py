@@ -6,7 +6,7 @@ import time
 from pathlib import Path
 
 # Список targets содержит имена вендоров, которые будут учитываться при обработке данных.
-targets = ["Leanar", "Server-Part", "Система"]
+targets = ["Гравиком"]
 
 # Получение пути к директории, где находится скрипт
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -26,7 +26,7 @@ def GetPartnumber(entry):
 
 # функция проверки, является ли поставщик подходящим
 # подходящие поставщики в массиве targets
-def IsValidVendor(entry):
+def IsVendor(entry):
     return GetVendor(entry) in targets
 
 # функция получения наименования поставщика
@@ -55,8 +55,8 @@ def CreateDataset(productlist):
         # Этот цикл проходит по каждой строке в разделе listStock текущего master_entry
         for entry in master_entry['listStock']['rows']:
             # Если продукт не проходит валидацию по поставщику цикл переходит к следующей итерации.
-            # if not IsValidVendor(entry) or not IsValidPrice(entry):
-            #     continue
+            if IsVendor(entry):
+                continue
             if not IsValidPrice(entry):
                 continue
             price = int(float(GetPrice(entry)))
