@@ -111,3 +111,4 @@ for price_info in price_list:
 
 # Закрытие браузера
 driver.quit()
+
