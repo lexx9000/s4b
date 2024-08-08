@@ -108,5 +108,6 @@ def download_and_rename(price_info):
 for price_info in price_list:
     download_and_rename(price_info)
 
+
 # Закрытие браузера
 driver.quit()
