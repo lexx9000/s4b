@@ -225,4 +225,3 @@ def main(extract_files=True):
 
 if __name__ == "__main__":
     main(extract_files=False)  # Установите True или False для включения или отключения извлечения файлов
-
